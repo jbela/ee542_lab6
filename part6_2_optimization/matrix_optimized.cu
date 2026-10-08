@@ -82,6 +82,8 @@ int main(int argc, char **argv)
     float *h_B = (float *)malloc(size);
     float *h_C = (float *)malloc(size);
 
+    srand(0);
+
     for (int i = 0; i < N * N; i++)
     {
         h_A[i] = rand() % 100 / 100.0f;
@@ -110,6 +112,15 @@ int main(int argc, char **argv)
     cudaEvent_t start, stop;
     cudaEventCreate(&start);
     cudaEventCreate(&stop);
+
+    // Warm-up
+    matrixMultiplyOptimized<<<grid, block>>>(
+        d_A,
+        d_B,
+        d_C,
+        N
+    );
+    cudaDeviceSynchronize();
 
     cudaEventRecord(start);
 

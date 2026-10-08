@@ -1,8 +1,10 @@
-34.220.63.178#include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <cuda_runtime.h>
 
+#ifndef TILE_WIDTH
 #define TILE_WIDTH 16
+#endif
 
 __global__ void matrixMultiplyTiled(float *A, float *B, float *C, int N)
 {
@@ -107,6 +109,10 @@ int main(int argc, char **argv)
 
     cudaEventCreate(&start);
     cudaEventCreate(&stop);
+
+    // Warm-up
+    matrixMultiplyTiled<<<grid, block>>>(d_A, d_B, d_C, N);
+    cudaDeviceSynchronize();
 
     cudaEventRecord(start);
 

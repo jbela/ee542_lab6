@@ -139,6 +139,10 @@ int main(int argc, char **argv) {
     cudaEventCreate(&start);
     cudaEventCreate(&stop);
 
+    // Warm-up
+    matrixMultiplyRegisterBlocked<<<grid, block>>>(d_A, d_B, d_C, N);
+    cudaDeviceSynchronize();
+
     cudaEventRecord(start);
 
     matrixMultiplyRegisterBlocked<<<grid, block>>>(d_A, d_B, d_C, N);
