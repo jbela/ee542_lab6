@@ -2,19 +2,19 @@
 
 ## Source Codes
 
-## part1_CPU
+### part1_CPU
 - matrix_cpu.c
 
-## part2_3_CUDA
+### part2_3_CUDA
 - matrix_gpu.cu
 
-## part4_TILED
+### part4_TILED
 - matrix_tiled.cu
 
-## part6_1_cuBLAS
+### part6_1_cuBLAS
 - matrix_cublas.cu
 
-## part6_2_optimization
+### part6_2_optimization
 - matrix_all_optimizations.cu
 - matrix_optimized.cu
 - matrix_padding.cu
@@ -24,13 +24,13 @@
 - matrix_async.cu
 - matrix_double_buffer.cu
 
-## part7_PYTHON
+### part7_PYTHON
 - matrix_lib.cu
 - matrix_lib_ellie.cu
 - matrix_lib_ellie.dll
 - test_matrix.py
 
-## part8_CONVOLUTION
+### part8_CONVOLUTION
 - TIFF
     - convolution_cpu.c
     - convolution_lib.cu
