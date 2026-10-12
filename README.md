@@ -21,6 +21,8 @@
 - matrix_register_blocked.cu
 - matrix_threadcoarsening_registerblocking.cu
 - matrix_unroll.cu
+- matrix_async.cu
+- matrix_double_buffer.cu
 
 ## part7_PYTHON
 - matrix_lib.cu
